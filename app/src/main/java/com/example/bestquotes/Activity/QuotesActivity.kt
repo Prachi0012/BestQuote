@@ -40,9 +40,9 @@ class QuotesActivity : AppCompatActivity() {
             binding.txttitle.text = title
         }    
 
-//            if (id == 1) {
-//                quotelist = database.AttitudeQuotesDisplay()
-//            }
+            if (id == 1) {
+                quotelist = database.AttitudeQuotesDisplay()
+            }
 
             else if (id == 2) {
                 quotelist = database.AwesomeQuotesDisplay()

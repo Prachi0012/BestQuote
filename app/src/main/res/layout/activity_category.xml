@@ -6,7 +6,6 @@
     android:id="@+id/drawerlayout"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:openDrawer="start"
     tools:context=".Activity.CategoryActivity">
 
     <LinearLayout

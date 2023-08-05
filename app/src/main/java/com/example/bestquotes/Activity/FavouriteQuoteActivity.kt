@@ -23,12 +23,18 @@ class FavouriteQuoteActivity : AppCompatActivity() {
     }
     private fun initview() {
         favouritelist = db.FavouriteQuoteDisplay()
-        favouriteadapter = FavouriteAdapter(this, favouritelist)
+        favouriteadapter = FavouriteAdapter(this, favouritelist, like = {
+                status, id ->
+            db.UpdateFavouriteQuote(
+                status,
+                id
+            )
+        })
         var manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rcv.adapter =favouriteadapter
         binding.rcv.layoutManager = manager
 
-
+        favouriteadapter.updateList(favouritelist)
     }
 
 }

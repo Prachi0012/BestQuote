@@ -76,7 +76,7 @@ class MyDatabase(context:Context): SQLiteOpenHelper(context, DB_NAME, null, DB_V
     {
         var read = readableDatabase
         var displaylist = ArrayList<CategoryModelclass>()
-        var query = "select * from CategoryTb Where id>=2"
+        var query = "select * from CategoryTb "
         var cursor : Cursor = read.rawQuery(query,null)
         cursor.moveToFirst()
          do {
@@ -87,21 +87,21 @@ class MyDatabase(context:Context): SQLiteOpenHelper(context, DB_NAME, null, DB_V
          return displaylist
     }
 
-//    fun AttitudeQuotesDisplay(): ArrayList<QuotesModelclass>
-//    {
-//        var read = readableDatabase
-//        var displayquote = ArrayList<QuotesModelclass>()
-//        var query = "select * from Quotes where Category_id= 1"
-//        var cursor : Cursor = read.rawQuery(query,null)
-//        cursor.moveToFirst()
-//        do {
-//            var id = cursor.getInt(0)
-//            var Quotes = cursor.getString(1)
-//            var fav = cursor.getInt(2)
-//            displayquote.add(QuotesModelclass(id,Quotes,fav))
-//        }while (cursor.moveToNext())
-//        return displayquote
-//    }
+    fun AttitudeQuotesDisplay(): ArrayList<QuotesModelclass>
+    {
+        var read = readableDatabase
+        var displayquote = ArrayList<QuotesModelclass>()
+        var query = "select * from Quotes where Category_id= 1"
+        var cursor : Cursor = read.rawQuery(query,null)
+        cursor.moveToFirst()
+        do {
+            var id = cursor.getInt(0)
+            var Quotes = cursor.getString(1)
+            var fav = cursor.getInt(2)
+            displayquote.add(QuotesModelclass(id,Quotes,fav))
+        }while (cursor.moveToNext())
+        return displayquote
+    }
     fun AwesomeQuotesDisplay(): ArrayList<QuotesModelclass>
     {
         var read = readableDatabase
