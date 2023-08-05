@@ -22,9 +22,13 @@ class FavouriteQuoteActivity : AppCompatActivity() {
         initview()
     }
     private fun initview() {
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
+
+        }
         favouritelist = db.FavouriteQuoteDisplay()
         favouriteadapter = FavouriteAdapter(this, favouritelist, like = {
-                status, id ->
+                status, id ->            //set adapter class and pass parameter
             db.UpdateFavouriteQuote(
                 status,
                 id
@@ -34,7 +38,7 @@ class FavouriteQuoteActivity : AppCompatActivity() {
         binding.rcv.adapter =favouriteadapter
         binding.rcv.layoutManager = manager
 
-        favouriteadapter.updateList(favouritelist)
+
     }
 
 }

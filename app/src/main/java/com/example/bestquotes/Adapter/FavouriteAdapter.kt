@@ -12,8 +12,7 @@ import com.example.bestquotes.R
 
 class FavouriteAdapter(
     var favouriteQuoteActivity: FavouriteQuoteActivity,
-    var favouritelist: ArrayList<FavouriteQuoteModelclass>,
-    var like: (Int, Int) -> Unit
+    var favouritelist: ArrayList<FavouriteQuoteModelclass>,var like: (Int, Int) -> Unit
 ) : RecyclerView.Adapter<FavouriteAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,7 +26,7 @@ class FavouriteAdapter(
     ): FavouriteAdapter.MyViewHolder {
 
         var view =
-            LayoutInflater.from(parent.context).inflate(R.layout.favourite_tem_file, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.quotes_item_file, parent, false)
         return FavouriteAdapter.MyViewHolder(view)
     }
 
@@ -36,18 +35,20 @@ class FavouriteAdapter(
         holder.txtQuotes.text = favouritelist[position].quote
 
         //like
-        holder.imglike.setImageResource(R.drawable.like)
+        holder.imglike.setImageResource(R.drawable.filllike)
 
 
         //like
         holder.imglike.setOnClickListener {
 
 
-            like.invoke(0, favouritelist[position].id)
+            like.invoke(0,favouritelist[position].id)
             favouritelist[position].status = 0
 
-            deleteItem(position)
 
+
+            //click button and set unlike
+            deleteItem(position)  //create function and set position
         }
     }
 

@@ -349,7 +349,7 @@ class MyDatabase(context:Context): SQLiteOpenHelper(context, DB_NAME, null, DB_V
     {
         var read = readableDatabase
         var displayquote = ArrayList<FavouriteQuoteModelclass>()
-        var query = "select * from Quotes where Favourite = 1"
+        var query = "select * from Quotes where Favourite = 100"
         var cursor : Cursor = read.rawQuery(query,null)
         cursor.moveToFirst()
         do {

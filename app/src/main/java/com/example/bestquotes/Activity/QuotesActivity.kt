@@ -33,6 +33,11 @@ class QuotesActivity : AppCompatActivity() {
 
     private fun initview() {
 
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
+
+        }
+
         if(intent!=null) {
             id = intent.getIntExtra("Id",id)
             title = intent.getStringExtra("name").toString()

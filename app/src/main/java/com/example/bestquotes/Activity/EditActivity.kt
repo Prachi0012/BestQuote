@@ -1,5 +1,6 @@
 package com.example.bestquotes.Activity
 
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,8 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.bestquotes.R
 import com.example.bestquotes.databinding.ActivityEditBinding
 
@@ -33,6 +36,11 @@ class EditActivity : AppCompatActivity() {
     }
 
     private fun initview() {
+
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
+
+        }
         if(intent!=null) {
             id = intent.getIntExtra("Id",id)
             title = intent.getStringExtra("title").toString()
@@ -46,6 +54,10 @@ class EditActivity : AppCompatActivity() {
 
             Background()
         }
+//        binding.addimg.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+//            gallery_Launcher.launch(intent)
+//        }
         binding.imgdownload.setOnClickListener {
             val pic: View =binding.layoutdownload
             pic.isDrawingCacheEnabled=true
@@ -59,7 +71,15 @@ class EditActivity : AppCompatActivity() {
             MediaStore.Images.Media.insertImage(contentResolver,bm,null,null)
         }
     }
-
+//    var gallery_Launcher = registerForActivityResult<Intent, ActivityResult>(
+//        ActivityResultContracts.StartActivityForResult()
+//    ) { result ->
+//        if (result.resultCode == RESULT_OK) {
+//            val data = result.data
+//            val uri = data!!.data
+//            binding.bgimg.setcardURI(uri)
+//        }
+//    }
     private fun Background() {
         if(currentindex>= img.size){
             currentindex=0

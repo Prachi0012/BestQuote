@@ -13,6 +13,13 @@
 
 
 
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:src="@drawable/arrow_back" />
 
 <!--        <ImageView-->
 <!--            android:id="@+id/imgBackFav"-->
@@ -27,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Favorite"
+            android:text="Favourite"
             android:textColor="@color/white"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />

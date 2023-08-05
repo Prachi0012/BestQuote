@@ -49,16 +49,17 @@ class QuotesAdapter(
         }
 
 
-        if (quotelist[position].Favourite == 1) {
+        if(quotelist[position].Favourite == 100) {
            holder.imglike.setImageResource(R.drawable.filllike)
-        } else {
+        }
+        else {
              holder.imglike.setImageResource(R.drawable.like)
         }
 
 
         //like
         holder.imglike.setOnClickListener {
-            if (quotelist[position].Favourite == 1) {
+            if (quotelist[position].Favourite == 100) {
                 holder.imglike.setImageResource(R.drawable.like)
                 quotelist[position].Favourite = 0
                 Favourite.invoke(quotelist[position].Favourite, quotelist[position].id.toString())
@@ -66,10 +67,11 @@ class QuotesAdapter(
             } else {
 
                 holder.imglike.setImageResource(R.drawable.filllike)
-                quotelist[position].Favourite = 1
+                quotelist[position].Favourite = 100
                 Favourite.invoke(quotelist[position].Favourite, quotelist[position].id.toString())
             }
         }
+
 
 
 //        holder.imglike.setOnClickListener {
